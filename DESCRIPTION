@@ -15,3 +15,5 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
+URL: https://github.com/atakzltn/MAKibb
+BugReports: https://github.com/atakzltn/MAKibb/issues
