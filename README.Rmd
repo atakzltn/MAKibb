@@ -14,6 +14,11 @@ knitr::opts_chunk$set(
 library(dplyr)
 ```
 
+```{r pressure, echo=FALSE, fig.cap="A caption", out.width = '30%',fig.align='center'}
+knitr::include_graphics("/Users/atakankiziltan/Desktop/calisma klasoru r/dataflair_ideas/imgfile.png")
+```
+
+
 # MAKibb by Mustafa Atakan Kızıltan
 
 <!-- badges: start -->

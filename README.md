@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<img src="/Users/atakankiziltan/Desktop/calisma klasoru r/dataflair_ideas/imgfile.png" title="A caption" alt="A caption" width="30%" style="display: block; margin: auto;" />
+
 # MAKibb by Mustafa Atakan Kızıltan
 
 <!-- badges: start -->
@@ -90,11 +92,11 @@ head(get_bozukyol(),5)
 library(MAKibb)
 head(get_lokasyon(),5)
 #>   Operator  Garaj KapiNo  Saat    Boylam     Enlem Hiz      Plaka
-#> 1     İETT  G_IKT  B5308 11:01   28.7909  41.05983   0 34 NL 8219
-#> 2     İETT  G_IKT  B5323 11:01 28.791906 41.059628   0 34 NL 8204
-#> 3     İETT PG_TPK  B5338 11:01 28.928143  41.01669   0 34 NL 8197
-#> 4     İETT PG_TPK  B5353 11:01  28.87248  40.98299  13 34 NL 8191
-#> 5     İETT PG_TPK  B5368 11:01 28.877352  41.10929   0 34 NL 8173
+#> 1     İETT  G_IKT  B5308 13:13   28.7909  41.05983   0 34 NL 8219
+#> 2     İETT  G_IKT  B5323 13:13 28.791906 41.059628   0 34 NL 8204
+#> 3     İETT PG_TPK  B5338 13:13  28.92797 41.016773   0 34 NL 8197
+#> 4     İETT PG_TPK  B5353 13:13 28.885141  40.99566   0 34 NL 8191
+#> 5     İETT PG_TPK  B5368 13:13 28.909216 41.040314  74 34 NL 8173
 ```
 
 ## get\_duyuru Function
@@ -104,18 +106,18 @@ head(get_lokasyon(),5)
 ``` r
 library(MAKibb)
 head(get_duyuru(),5)
-#>      Tip Hat Güncelleme
-#> 1 Günlük DT1      10:52
-#> 2  Sefer 25C      10:49
-#> 3  Sefer 25C      10:49
-#> 4 Günlük DT2      10:43
-#> 5  Sefer 15N      10:31
-#>                                                                                                                            Mesaj
-#> 1  ÇIRAĞAN CADDESI MEVKII İSKI ÇALIŞMASINDAN DOLAYI KAPALI, ARAÇLARIMIZ 31.TAKSIM DURAĞINDAN U DÖNÜŞÜ YAPIP RING OLARAK ÇALIŞIR.
-#> 2                        TARABYA ÜSTÜ dan Saat 10:40 de hareket etmesi planlanan seferimiz  çeşitli nedenlerle yapılamayacaktır.
-#> 3                        TARABYA ÜSTÜ dan Saat 12:00 de hareket etmesi planlanan seferimiz  çeşitli nedenlerle yapılamayacaktır.
-#> 4 ÇIRAĞAN CADDESI MEVKII İSKI ÇALIŞMASINDAN  DOLAYI KAPALI, ARAÇLARIMIZ 16.TAKSIM DURAĞINDAN U DÖNÜŞÜ YAPIP RING OLARAK ÇALIŞIR.
-#> 5                  ÜSKÜDAR  CAMİİ ÖNÜ dan Saat 10:50 de hareket etmesi planlanan seferimiz  çeşitli nedenlerle yapılamayacaktır.
+#>      Tip  Hat Güncelleme
+#> 1 Günlük 36AS      13:09
+#> 2  Sefer  13M      13:08
+#> 3  Sefer  89A      13:08
+#> 4 Günlük 36AS      13:06
+#> 5  Sefer   33      12:31
+#>                                                                                                                                                                                       Mesaj
+#> 1    TAŞOLUK YÖNÜ KAZIM KARABEKIR CADDESI YOL ÇALIŞMASI NEDENIYLE KAPALIDIR.OTOBÜSLER 66.KIPTAŞ KONUTLARI DURAĞINDAN GÜZERGAHTAN ÇIKARAK 68.TAŞOLUK YEŞIL CAMII DURAĞINDAN GÜZERGAHA GIRER.
+#> 2                                                                                 HAREM PERONLAR dan Saat 13:00 de hareket etmesi planlanan seferimiz  çeşitli nedenlerle yapılamayacaktır.
+#> 3                                                                         KANUNİ SULTAN SÜLEYMAN dan Saat 14:35 de hareket etmesi planlanan seferimiz  çeşitli nedenlerle yapılamayacaktır.
+#> 4 KARTALTEPE YÖNÜ KAZIM KARABEKIR CADDESI YOL ÇALIŞMASI NEDENIYLE KAPALIDIR. OTOBÜSLERIMIZ 11.TAŞOLUK CAMII DURAĞINDAN GÜZERGÂHTAN ÇIKARAK, 13.KIPTAŞ KONUTLARI DURAĞINDAN GÜZERGÂHA GIRER.
+#> 5                                                                                      GİYİMKENT dan Saat 12:50 de hareket etmesi planlanan seferimiz  çeşitli nedenlerle yapılamayacaktır.
 ```
 
 ## plot\_lokasyon Function
