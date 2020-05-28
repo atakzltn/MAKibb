@@ -1,0 +1,13 @@
+Package: MAKibb
+Type: Package
+Title: Query on the Web Service shared by Istanbul Metropolitan Municipality
+Version: 1.0.0
+Author: Mustafa Atakan Kiziltan
+Maintainer: Mustafa Atakan Kiziltan <m.atakan.kiziltan@gmail.com>
+Description: Istanbul Metropolitan Municipality shared Web Services. With this package, you can easily query in Istanbul Electricity, Tramway and Tunnel Establishments (IETT) WSDL services.
+License: GPL-3
+Encoding: UTF-8
+LazyData: FALSE
+Imports: xml2, RCurl, dplyr, leaflet, stringr
+Published: 2020-27-05
+RoxygenNote: 7.1.0
