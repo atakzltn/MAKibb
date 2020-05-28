@@ -18,6 +18,9 @@
 #' @importFrom leaflet addTiles
 #' @importFrom leaflet addMarkers
 #' @importFrom htmltools HTML
+#' @importFrom dplyr %>%
+#' @name %>%
+#' @rdname pipe
 #' @examples  plot_lokasyon(numberplate="34 NL 7572")
 #'
 #' @export

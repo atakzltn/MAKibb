@@ -1,13 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# MAKibb
+# MAKibb by Mustafa Atakan Kızıltan
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
-The goal of MAKibb is to …
+The goal of MAKibb is to reach easily Istanbul Metropolitan Municipality
+web services.
+
+Thank you to *Zülal T. Yıldırım* for her contributions.
 
 ## Installation
 
@@ -18,35 +21,129 @@ You can install the released version of MAKibb from
 install.packages("MAKibb")
 ```
 
-## Example
+## get\_durak Function
 
-This is a basic example which shows you how to solve a common problem:
+>   - You can reach line code, line name, line situation, area and
+>     journey time instantly with this function.
+>   - You can query with/without with linecode.
 
 ``` r
 library(MAKibb)
-## basic example code
+head(get_durakdetay(linecode="145T"),5)
+#>   HATKODU YON SIRANO DURAKKODU XKOORDINATI YKOORDINATI        DURAKADI
+#> 1    145T   D      1    303421   28,988844   41,039606 GÜMÜŞSUYU PERON
+#> 2    145T   D      2    181842   28,984631   41,037919    TAKSİM TÜNEL
+#> 3    145T   D      3    117472   28,980185   41,036589       TARLABAŞI
+#> 4    145T   D      4    117462   28,976022   41,035728     ÖMER HAYYAM
+#> 5    145T   D      5    117452   28,974072   41,032916        TEPEBAŞI
+#>    DURAKTIPI ILCEADI
+#> 1 İETTBAYRAK Beyoğlu
+#> 2 AÇIK DURAK Beyoğlu
+#> 3 İETTBAYRAK Beyoğlu
+#> 4 WALLMODERN Beyoğlu
+#> 5 WALLMODERN Beyoğlu
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+## get\_hatdetay Function
+
+>   - You can reach all the route and bus stop information instantly
+>     with this function.
+>   - You can query with/without with linecode.
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+library(MAKibb)
+head(get_hatdetay(),5)
+#>   HATKODU                     HATADI HATDURUMU    BOLGE SEFERSURESI
+#> 1   AND1A         ANADOLU1 / ANADOLU         1 Anadolu1          10
+#> 2  AND1A3   ANADOLU1 DEPAR / ANADOLU         1 Anadolu2          10
+#> 3   AND1Ş ANADOLU1 DEPAR / ŞAHİNKAYA         1 Anadolu1          10
+#> 4   AND2S  ANADOLU2 DEPAR / SARIGAZİ         0 Anadolu2          10
+#> 5   AND2Y     ANADOLU2 DEPAR / YUNUS         1 Anadolu2        6.67
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
+## get\_bozukyol Function
 
-You can also embed plots, for example:
+>   - You can reach instant bad road information.
+>   - This information is the information that comes to the bus driver
+>     screens. For this reason, you can also query bad roads by the bus
+>     door number
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+``` r
+library(MAKibb)
+head(get_bozukyol(),5)
+#>     boylam    enlem kapinumarasi
+#> 1 28.60621 41.18517        O1161
+#> 2 28.87162 41.03640        O1245
+#> 3 28.88274 41.01979        O1245
+#> 4 29.27608 40.91418        O3255
+#> 5 28.94499 41.07282        K1536
+```
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!
+## get\_lokasyon Function
+
+>   - You can reach location and speed (km/h) of any bus with/without
+>     number plate.
+>   - Number plate parameter is not mandatory. You can query
+>     with/without number plate.
+
+``` r
+library(MAKibb)
+head(get_lokasyon(),5)
+#>   Operator  Garaj KapiNo  Saat    Boylam     Enlem Hiz      Plaka
+#> 1     İETT  G_IKT  B5308 11:01   28.7909  41.05983   0 34 NL 8219
+#> 2     İETT  G_IKT  B5323 11:01 28.791906 41.059628   0 34 NL 8204
+#> 3     İETT PG_TPK  B5338 11:01 28.928143  41.01669   0 34 NL 8197
+#> 4     İETT PG_TPK  B5353 11:01  28.87248  40.98299  13 34 NL 8191
+#> 5     İETT PG_TPK  B5368 11:01 28.877352  41.10929   0 34 NL 8173
+```
+
+## get\_duyuru Function
+
+>   - You can reach daily announcements by type and bus line.
+
+``` r
+library(MAKibb)
+head(get_duyuru(),5)
+#>      Tip Hat Güncelleme
+#> 1 Günlük DT1      10:52
+#> 2  Sefer 25C      10:49
+#> 3  Sefer 25C      10:49
+#> 4 Günlük DT2      10:43
+#> 5  Sefer 15N      10:31
+#>                                                                                                                            Mesaj
+#> 1  ÇIRAĞAN CADDESI MEVKII İSKI ÇALIŞMASINDAN DOLAYI KAPALI, ARAÇLARIMIZ 31.TAKSIM DURAĞINDAN U DÖNÜŞÜ YAPIP RING OLARAK ÇALIŞIR.
+#> 2                        TARABYA ÜSTÜ dan Saat 10:40 de hareket etmesi planlanan seferimiz  çeşitli nedenlerle yapılamayacaktır.
+#> 3                        TARABYA ÜSTÜ dan Saat 12:00 de hareket etmesi planlanan seferimiz  çeşitli nedenlerle yapılamayacaktır.
+#> 4 ÇIRAĞAN CADDESI MEVKII İSKI ÇALIŞMASINDAN  DOLAYI KAPALI, ARAÇLARIMIZ 16.TAKSIM DURAĞINDAN U DÖNÜŞÜ YAPIP RING OLARAK ÇALIŞIR.
+#> 5                  ÜSKÜDAR  CAMİİ ÖNÜ dan Saat 10:50 de hareket etmesi planlanan seferimiz  çeşitli nedenlerle yapılamayacaktır.
+```
+
+## plot\_lokasyon Function
+
+>   - You can see the bus location that you want in a map.
+
+``` r
+library(MAKibb)
+plot_lokasyon(numberplate="34 NL 7572")
+```
+
+<img src="man/figures/README-plotlokasyon-1.png" width="100%" />
+
+## plot\_guzergah Function
+
+>   - You can see the bus line route that you want in a map. You can
+>     reach all bus lines with get\_hatdetay() function.
+
+>   - linecode is not mandatory. You can query bus line with bus line
+>     code.
+
+``` r
+library(MAKibb)
+plot_guzergah(linecode="145T")
+```
+
+<img src="man/figures/README-plotguzergah-1.png" width="100%" />
+
+See [linked
+phrase](https://data.ibb.gov.tr/organization/iett-genel-mudurlugu) for
+more information.

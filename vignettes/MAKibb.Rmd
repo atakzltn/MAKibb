@@ -1,0 +1,21 @@
+---
+title: "MAKibb"
+author: "Mustafa Atakan Kızıltan"
+date: "28 May 2020"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{MAKibb}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MAKibb)
+```

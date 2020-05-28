@@ -1,6 +1,6 @@
 #' @title plot_guzergah Function
 #'
-#' @description You can see the bus line route that you want in a map. See \url{https://data.ibb.gov.tr/organization/iett-genel-mudurlugu} for more information.
+#' @description You can see the bus line route that you want in a map. You can reach all bus lines with get_hatdetay() function.    See \url{https://data.ibb.gov.tr/organization/iett-genel-mudurlugu} for more information.
 #' @export
 #'
 #' @param linecode This is mandatory. You can query bus line with bus line code.
@@ -18,6 +18,9 @@
 #' @importFrom leaflet addTiles
 #' @importFrom leaflet addMarkers
 #' @importFrom htmltools HTML
+#' @importFrom dplyr %>%
+#' @name %>%
+#' @rdname pipe
 #' @examples  plot_guzergah(linecode="145T")
 #'
 #' @export

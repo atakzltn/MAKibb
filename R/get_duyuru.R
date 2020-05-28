@@ -14,7 +14,6 @@
 #' @importFrom dplyr arrange
 #' @importFrom dplyr desc
 #' @importFrom stringr str_replace_all
-#' @examples  get_duyuru()
 #'
 #' @export
 

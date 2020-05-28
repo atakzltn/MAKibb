@@ -11,14 +11,17 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(dplyr)
 ```
 
-# MAKibb
+# MAKibb by Mustafa Atakan Kızıltan
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of MAKibb is to ...
+The goal of MAKibb is to reach easily Istanbul Metropolitan Municipality web services.
+
+Thank you to _Zülal T. Yıldırım_ for her contributions.
 
 ## Installation
 
@@ -28,27 +31,80 @@ You can install the released version of MAKibb from [CRAN](https://CRAN.R-projec
 install.packages("MAKibb")
 ```
 
-## Example
+## get_durak Function
 
-This is a basic example which shows you how to solve a common problem:
+> - You can reach line code, line name, line situation, area and journey time instantly with this function.
+> - You can query with/without with linecode.
 
-```{r example}
+```{r getdurakdetay}
 library(MAKibb)
-## basic example code
+head(get_durakdetay(linecode="145T"),5)
+
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+## get_hatdetay Function
 
-```{r cars}
-summary(cars)
+> - You can reach all the route and bus stop information instantly with this function.
+> - You can query with/without with linecode.
+
+```{r gethatdetay}
+library(MAKibb)
+head(get_hatdetay(),5)
+
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
 
-You can also embed plots, for example:
+## get_bozukyol Function
 
-```{r pressure, echo = FALSE}
-plot(pressure)
+> - You can reach instant bad road information.
+> - This information is the information that comes to the bus driver screens. For this reason, you can also query bad roads by the bus door number
+
+```{r getbozukyol}
+library(MAKibb)
+head(get_bozukyol(),5)
+
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+## get_lokasyon Function
+
+> - You can reach location and speed (km/h) of any bus with/without number plate.
+> - Number plate parameter is not mandatory. You can query with/without number plate.
+
+```{r getlokasyon}
+library(MAKibb)
+head(get_lokasyon(),5)
+
+```
+
+
+## get_duyuru Function
+
+> - You can reach daily announcements by type and bus line.
+
+```{r getduyuru}
+library(MAKibb)
+head(get_duyuru(),5)
+```
+
+## plot_lokasyon Function
+
+> - You can see the bus location that you want in a map.
+
+```{r plotlokasyon}
+library(MAKibb)
+plot_lokasyon(numberplate="34 NL 7572")
+```
+
+## plot_guzergah Function
+
+> - You can see the bus line route that you want in a map. You can reach all bus lines with get_hatdetay() function.
+
+> - linecode is not mandatory. You can query bus line with bus line code.
+
+```{r plotguzergah}
+library(MAKibb)
+plot_guzergah(linecode="145T")
+```
+
+
+See [linked phrase](https://data.ibb.gov.tr/organization/iett-genel-mudurlugu) for more information.

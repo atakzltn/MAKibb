@@ -9,7 +9,3 @@ get_duyuru()
 \description{
 You can reach daily announcements by type and bus line. See \url{https://data.ibb.gov.tr/organization/iett-genel-mudurlugu} for more information.
 }
-\examples{
- get_duyuru()
-
-}

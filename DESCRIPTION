@@ -11,3 +11,7 @@ LazyData: FALSE
 Imports: xml2, RCurl, dplyr, leaflet, stringr,XML,jsonlite, htmltools
 Published: 2020-27-05
 RoxygenNote: 7.1.0
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
