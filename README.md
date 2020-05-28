@@ -20,7 +20,8 @@ You can install the released version of MAKibb from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("MAKibb")
+library(devtools)
+devtools::install_github("atakzltn/MAKibb")
 ```
 
 ## get\_durak Function
@@ -92,11 +93,11 @@ head(get_bozukyol(),5)
 library(MAKibb)
 head(get_lokasyon(),5)
 #>   Operator  Garaj KapiNo  Saat    Boylam     Enlem Hiz      Plaka
-#> 1     İETT  G_IKT  B5308 13:17   28.7909  41.05983   0 34 NL 8219
-#> 2     İETT  G_IKT  B5323 13:17 28.791906 41.059628   0 34 NL 8204
-#> 3     İETT PG_TPK  B5338 13:17  28.92797 41.016773   0 34 NL 8197
-#> 4     İETT PG_TPK  B5353 13:17 28.885141  40.99566   0 34 NL 8191
-#> 5     İETT PG_TPK  B5368 13:17 28.926876 41.018234   0 34 NL 8173
+#> 1     İETT  G_IKT  B5308 13:23   28.7909  41.05983   0 34 NL 8219
+#> 2     İETT  G_IKT  B5323 13:23 28.791906 41.059628   0 34 NL 8204
+#> 3     İETT PG_TPK  B5338 13:24  28.92797 41.016773   0 34 NL 8197
+#> 4     İETT PG_TPK  B5353 13:23 28.885162  40.99564   0 34 NL 8191
+#> 5     İETT PG_TPK  B5368 13:23 28.928314 41.016945   0 34 NL 8173
 ```
 
 ## get\_duyuru Function
