@@ -1,9 +1,9 @@
-#' @title get_durakdetay Function
+#' @title plot_guzergah Function
 #'
-#' @description You can reach line code, line name, line situation, area and journey time instantly with this function. See \url{https://data.ibb.gov.tr/organization/iett-genel-mudurlugu} for more information.
+#' @description You can see the bus line route that you want in a map. See \url{https://data.ibb.gov.tr/organization/iett-genel-mudurlugu} for more information.
 #' @export
 #'
-#' @param linecode You can make a query with/without bus line code.
+#' @param linecode This is mandatory. You can query bus line with bus line code.
 #'
 #' @return NULL
 #' @importFrom RCurl basicTextGatherer
@@ -11,14 +11,18 @@
 #' @importFrom xml2 as_xml_document
 #' @importFrom xml2 xml_find_all
 #' @importFrom xml2 xml_text
-#' @examples  get_durakdetay(linecode="145T")
+#' @importFrom XML xmlParse
+#' @importFrom jsonlite fromJSON
+#' @importFrom XML xmlToDataFrame
+#' @importFrom leaflet leaflet
+#' @importFrom leaflet addTiles
+#' @importFrom leaflet addMarkers
+#' @importFrom htmltools HTML
+#' @examples  plot_guzergah(linecode="145T")
 #'
 #' @export
 
-
-
-
-get_durakdetay <- function(linecode) {
+plot_guzergah <- function(linecode) {
 
   headerFields =
     c(Accept = "text/xml",
@@ -26,21 +30,13 @@ get_durakdetay <- function(linecode) {
       'Content-Type' = "text/xml; charset=utf-8",
       SOAPAction = "http://tempuri.org/DurakDetay_GYY")
 
-  ifelse(missing(linecode),
-         (body = ' <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
-    <Body>
-        <DurakDetay_GYY xmlns="http://tempuri.org/">
-            <hat_kodu></hat_kodu>
-        </DurakDetay_GYY>
-    </Body>
-</Envelope> '),
-         (body = paste0(' <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  body = paste0(' <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
     <Body>
         <DurakDetay_GYY xmlns="http://tempuri.org/">
             <hat_kodu>',linecode,'</hat_kodu>
         </DurakDetay_GYY>
     </Body>
-</Envelope> ')))
+</Envelope> ')
 
 
   reader = basicTextGatherer()
@@ -94,6 +90,21 @@ get_durakdetay <- function(linecode) {
 
 
   yonler <- data.frame(HATKODU,YON,SIRANO,DURAKKODU,XKOORDINATI,YKOORDINATI,DURAKADI,DURAKTIPI,ILCEADI)
-  return(yonler)
+  yonler$XKOORDINATI <- str_replace_all(yonler$XKOORDINATI,",",".")
+  yonler$YKOORDINATI <- str_replace_all(yonler$YKOORDINATI,",",".")
+  yonler <- as.data.frame(yonler)
+
+  labs <- lapply(seq(nrow(yonler)), function(i) {
+    paste0( '<p>', "Hat Kodu: ",yonler[i, "HATKODU"], '<p></p>',
+            '<p>', "Durak Adı: ",yonler[i, "DURAKADI"],'<p></p>',
+            '<p>',"Durak Tipi: ",yonler[i, "DURAKTIPI"],'</p><p>',
+            "Durak İlçe: ",yonler[i, "ILCEADI"], '</p>' )
+  })
+
+
+  leaflet(data = yonler) %>% addTiles() %>%
+    addMarkers(~as.numeric(XKOORDINATI), ~as.numeric(YKOORDINATI), popup = ~lapply(labs, htmltools::HTML), label = lapply(labs, htmltools::HTML))
+
 
 }
+
