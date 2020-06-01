@@ -18,7 +18,7 @@
 #' @export
 
 get_duyuru <- function(){
-  stringi::stri_escape_unicode(c("Ü","İ","Ö","Ç","Ğ","Ş","u","ı","ö","ç","ğ","ş","Â","-"))
+
   headerFields =
     c(Accept = "text/xml",
       Accept = "multipart/*",
@@ -88,64 +88,11 @@ get_duyuru <- function(){
 
   colnames(mesaj_yayini)<-c("Tip","Hat","Guncelleme","Mesaj")
 
-  mesaj_yayini<-as.data.frame(mesaj_yayini)
-
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"Ö","O")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"Ü","U")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"Ş","S")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"İ","I")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"Ü","U")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"Ğ","G")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"İ","I")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"Ç","C")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"ş","s")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"ç","c")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"ğ","g")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"ı","i")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"ü","u")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"ö","o")
-  mesaj_yayini$Tip <- str_replace_all(mesaj_yayini$Tip,"Â","A")
-
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"Ö","O")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"Ü","U")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"Ş","S")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"İ","I")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"Ü","U")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"Ğ","G")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"İ","I")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"Ç","C")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"ş","s")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"ç","c")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"ğ","g")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"ı","i")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"ü","u")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"ö","o")
-  mesaj_yayini$Hat <- str_replace_all(mesaj_yayini$Hat,"Â","A")
-
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"Ö","O")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"Ü","U")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"Ş","S")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"İ","I")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"Ü","U")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"Ğ","G")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"İ","I")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"Ç","C")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"ş","s")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"ç","c")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"ğ","g")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"ı","i")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"ü","u")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"ö","o")
-  mesaj_yayini$Mesaj <- str_replace_all(mesaj_yayini$Mesaj,"Â","A")
-
-
-
-
-
-
 
 
   return(mesaj_yayini)
 
 }
+
+
 
